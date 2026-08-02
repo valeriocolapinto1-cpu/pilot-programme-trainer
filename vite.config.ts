@@ -38,8 +38,8 @@ export default defineConfig({
         short_name: 'Pathway Trainer',
         description:
           'Allenamento completo per la selezione del Wizz Air Pathway Programme: TestAir360, colloquio tecnico e HR.',
-        theme_color: '#0a0d12',
-        background_color: '#0a0d12',
+        theme_color: '#0b0b0c',
+        background_color: '#0b0b0c',
         display: 'standalone',
         orientation: 'any',
         start_url: base,

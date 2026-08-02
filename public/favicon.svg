@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Pathway Trainer">
-  <rect width="64" height="64" rx="14" fill="#10141b"/>
-  <g fill="none" stroke="#5b9dff" stroke-width="2.6" stroke-linejoin="round">
+  <rect width="64" height="64" rx="14" fill="#0b0b0c"/>
+  <g fill="none" stroke="#c8a24e" stroke-width="2.6" stroke-linejoin="round">
     <circle cx="32" cy="32" r="22"/>
-    <path d="M32 12 L38 32 L32 29 L26 32 Z" fill="#5b9dff"/>
+    <path d="M32 12 L38 32 L32 29 L26 32 Z" fill="#c8a24e"/>
   </g>
-  <path d="M32 52 L26 32 L32 35 L38 32 Z" fill="#5b6472"/>
+  <path d="M32 52 L26 32 L32 35 L38 32 Z" fill="#6b6459"/>
 </svg>

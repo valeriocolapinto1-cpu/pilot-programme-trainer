@@ -30,7 +30,10 @@ export function Layout() {
         <div className="mx-auto flex w-full max-w-5xl items-center gap-6 px-5 py-3">
           <NavLink to="/" className="flex items-center gap-2.5" style={{ color: 'var(--text)' }}>
             <Icon name="mark" size={22} style={{ color: 'var(--accent)' }} />
-            <span className="text-[0.9375rem] font-semibold tracking-tight">
+            <span
+              className="serif text-[1.15rem] leading-none"
+              style={{ letterSpacing: '0.02em' }}
+            >
               {t('app.title')}
             </span>
           </NavLink>

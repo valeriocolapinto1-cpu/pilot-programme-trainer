@@ -8,14 +8,14 @@ mkdirSync(OUT, { recursive: true })
 function page(size, pad, rounded) {
   const inner = size - pad * 2
   return `<!doctype html><html><body style="margin:0">
-<div style="width:${size}px;height:${size}px;background:#10141b;display:flex;align-items:center;justify-content:center;${
+<div style="width:${size}px;height:${size}px;background:#0b0b0c;display:flex;align-items:center;justify-content:center;${
     rounded ? `border-radius:${size * 0.22}px;` : ''
   }">
   <svg width="${inner}" height="${inner}" viewBox="0 0 64 64" fill="none"
-       stroke="#5b9dff" stroke-width="2.4" stroke-linejoin="round">
+       stroke="#c8a24e" stroke-width="2.4" stroke-linejoin="round">
     <circle cx="32" cy="32" r="24"/>
-    <path d="M32 9 L39 32 L32 28.5 L25 32 Z" fill="#5b9dff"/>
-    <path d="M32 55 L25 32 L32 35.5 L39 32 Z" fill="#5b6472" stroke="#5b6472"/>
+    <path d="M32 9 L39 32 L32 28.5 L25 32 Z" fill="#c8a24e"/>
+    <path d="M32 55 L25 32 L32 35.5 L39 32 Z" fill="#6b6459" stroke="#6b6459"/>
   </svg>
 </div></body></html>`
 }
