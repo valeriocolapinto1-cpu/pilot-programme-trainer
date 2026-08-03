@@ -13,12 +13,21 @@ const App = dynamic(() => import('@/shell/App').then((m) => m.App), {
         minHeight: '100dvh',
         display: 'grid',
         placeItems: 'center',
-        background: '#0b0b0c',
-        color: '#78746c',
-        fontFamily: 'system-ui, sans-serif',
+        background: 'var(--bg, #0b0b0c)',
       }}
     >
-      …
+      <span
+        aria-label="Loading"
+        style={{
+          width: 26,
+          height: 26,
+          display: 'inline-block',
+          borderRadius: '50%',
+          border: '2px solid var(--line-strong, #3a3a3d)',
+          borderTopColor: 'var(--accent, #c8a24e)',
+          animation: 'spin 720ms linear infinite',
+        }}
+      />
     </div>
   ),
 })

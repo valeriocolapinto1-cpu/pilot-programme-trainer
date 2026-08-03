@@ -74,7 +74,11 @@ export function GroupChatRunner({
   }, [])
 
   useEffect(() => {
-    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' })
+    // Instant during streaming: a smooth scroll restarted on every token stutters.
+    scrollRef.current?.scrollTo({
+      top: scrollRef.current.scrollHeight,
+      behavior: streaming ? 'auto' : 'smooth',
+    })
   }, [turns, streaming])
 
   const streamGroupTurn = useCallback(
@@ -320,7 +324,19 @@ export function GroupChatRunner({
         )}
         {streaming ? <GroupBubbles text={streaming} youLabel="" streaming /> : null}
         {busy && !streaming ? (
-          <p className="muted-more text-xs">{b({ it: 'Il gruppo scrive…', en: 'The group is typing…' })}</p>
+          <div
+            className="flex items-center gap-2"
+            aria-label={b({ it: 'Il gruppo scrive', en: 'The group is typing' }) as string}
+          >
+            <span className="typing-dots" aria-hidden>
+              <span />
+              <span />
+              <span />
+            </span>
+            <span className="muted-more text-xs">
+              {b({ it: 'Il gruppo scrive…', en: 'The group is typing…' })}
+            </span>
+          </div>
         ) : null}
       </div>
 
@@ -370,9 +386,10 @@ function GroupBubbles({
   streaming?: boolean
 }) {
   void youLabel
+  const parts = useMemo(() => parseSpeakers(text), [text])
   return (
     <div className="flex flex-col gap-2">
-      {parseSpeakers(text).map((part, i) => {
+      {parts.map((part, i) => {
         const colour = part.speaker ? SPEAKER_COLOURS[part.speaker] ?? 'var(--text-2)' : 'var(--text-2)'
         return (
           <div key={i} className="flex justify-start">
@@ -386,7 +403,7 @@ function GroupBubbles({
                 </div>
               ) : null}
               <span>{part.text}</span>
-              {streaming && i === parseSpeakers(text).length - 1 ? (
+              {streaming && i === parts.length - 1 ? (
                 <span className="ml-0.5 animate-pulse">▍</span>
               ) : null}
             </div>

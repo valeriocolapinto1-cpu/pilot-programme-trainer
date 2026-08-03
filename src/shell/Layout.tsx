@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { useI18n, type TranslationKey } from '@/i18n'
 import { Icon, type IconName } from '@/components/Icon'
 import { useSettings } from '@/store/settingsStore'
@@ -13,6 +13,7 @@ const NAV: { to: string; key: TranslationKey; icon: IconName }[] = [
 
 export function Layout() {
   const { t } = useI18n()
+  const location = useLocation()
   const locale = useSettings((s) => s.locale)
   const setLocale = useSettings((s) => s.setLocale)
   const theme = useSettings((s) => s.theme)
@@ -88,7 +89,9 @@ export function Layout() {
       </header>
 
       <main className="mx-auto w-full max-w-5xl flex-1 px-5 py-8 pb-24 md:pb-10">
-        <Outlet />
+        <div key={location.pathname} className="page-enter">
+          <Outlet />
+        </div>
       </main>
 
       <nav
