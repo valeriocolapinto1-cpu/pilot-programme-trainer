@@ -122,6 +122,7 @@ export const englishModule: TrainerModule<EnglishConfig> = {
   kind: 'quiz',
   phase: 1,
   sourceTier: 'official',
+  aiSubject: 'english',
   icon: 'language',
   title: { it: 'Inglese', en: 'English' },
   blurb: {

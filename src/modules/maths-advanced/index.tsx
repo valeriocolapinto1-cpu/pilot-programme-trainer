@@ -50,6 +50,7 @@ export const mathsAdvancedModule: TrainerModule<MathsAdvancedConfig> = {
   kind: 'quiz',
   phase: 1,
   sourceTier: 'official',
+  aiSubject: 'maths',
   icon: 'ruler',
   title: { it: 'Matematica avanzata', en: 'Advanced maths' },
   blurb: {

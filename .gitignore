@@ -1,19 +1,27 @@
 # Dependencies
 node_modules/
 
-# Build output
-dist/
+# Next.js
+/.next/
+/out/
 *.tsbuildinfo
+
+# Legacy Vite build output
+/dist/
+
+# Vercel
+/.vercel
 
 # Test artifacts
 test-results/
 playwright-report/
-blob-report/
-.playwright/
+
+# Local env — never commit real keys
+.env
+.env*.local
 
 # Editor / OS
 .DS_Store
-*.local
 .vscode/*
 !.vscode/extensions.json
 .idea/

@@ -5,6 +5,7 @@ import { getModule } from '@/modules/registry'
 import { randomSeed } from '@/lib/rng'
 import { useProgress } from '@/store/progressStore'
 import { ModuleFrame, ModuleIntro, ModuleResult } from '@/components/ModuleShell'
+import { AIQuizRunner } from '@/components/AIQuizRunner'
 import type { ModuleScore } from '@/modules/types'
 
 type Stage =
@@ -69,16 +70,30 @@ export function ModulePage() {
     )
   }
 
-  const Component = module.Component
+  // Text-quiz modules generate fresh questions with the AI (grounded in the
+  // program); everything else uses its procedural component.
+  const cfg = module.defaultConfig as { count?: number; perItemMs?: number }
   return (
     <ModuleFrame title={b(module.title)} onQuit={() => navigate('/modules')}>
-      <Component
-        key={stage.seed}
-        config={module.defaultConfig}
-        seed={stage.seed}
-        mode="practice"
-        onFinish={handleFinish}
-      />
+      {module.aiSubject ? (
+        <AIQuizRunner
+          key={stage.seed}
+          subject={module.aiSubject}
+          difficulty={module.aiDifficulty ?? 'medium'}
+          count={cfg.count ?? 12}
+          perItemMs={cfg.perItemMs ?? 45000}
+          mode="practice"
+          onFinish={handleFinish}
+        />
+      ) : (
+        <module.Component
+          key={stage.seed}
+          config={module.defaultConfig}
+          seed={stage.seed}
+          mode="practice"
+          onFinish={handleFinish}
+        />
+      )}
     </ModuleFrame>
   )
 }

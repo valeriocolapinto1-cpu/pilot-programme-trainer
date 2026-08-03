@@ -343,6 +343,7 @@ export const physicsModule: TrainerModule<PhysicsConfig> = {
   kind: 'quiz',
   phase: 1,
   sourceTier: 'official',
+  aiSubject: 'physics',
   icon: 'atom',
   title: { it: 'Fisica', en: 'Physics' },
   blurb: {

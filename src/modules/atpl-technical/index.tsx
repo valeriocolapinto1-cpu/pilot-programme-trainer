@@ -76,6 +76,7 @@ export const atplTechnicalModule: TrainerModule<AtplConfig> = {
   kind: 'quiz',
   phase: 4,
   sourceTier: 'community',
+  aiSubject: 'atpl',
   icon: 'aircraft',
   title: { it: 'Colloquio tecnico ATPL', en: 'ATPL technical interview' },
   blurb: {

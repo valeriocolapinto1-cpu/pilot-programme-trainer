@@ -89,6 +89,14 @@ export interface TrainerModule<TConfig = unknown> {
   inProExam: boolean
   /** Part of the 5-area TestAir360 practice set. */
   inPracticeSet: boolean
+  /**
+   * When set, single-module practice generates fresh questions with the AI
+   * (grounded in the program) instead of the procedural Component, falling back
+   * to the built-in bank when no API key is configured. The Pro exam keeps using
+   * the Component for determinism and speed.
+   */
+  aiSubject?: 'physics' | 'maths' | 'english' | 'atpl'
+  aiDifficulty?: 'easy' | 'medium' | 'hard'
   Component: ComponentType<ModuleRuntimeProps<TConfig>>
 }
 
